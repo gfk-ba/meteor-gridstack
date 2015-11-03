@@ -1,0 +1,10 @@
+{
+  "env": {
+    "mocha": true
+  },
+  "globals": {
+    "sinon":false,
+    "expect":false,
+    "TemplateTestHelpers":false
+  }
+}

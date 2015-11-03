@@ -1,0 +1,44 @@
+<template name="gridstack">
+    <div class="grid-stack grid-stack-12">
+        {{#each widgets}}
+            {{> gridstack_widget widget=this editing=../editing options=../options gridstack=getGridstack}}
+        {{/each}}
+    </div>
+</template>
+
+<template name="gridstack_widget">
+    {{#with widget}}
+        <div id="widget_{{_id}}" class="grid-stack-item" data-widgetid="{{_id}}"
+             data-gs-x="{{x}}" data-gs-y="{{y}}" data-gs-locked="{{isLocked}}"
+             data-gs-width="{{width}}" data-gs-height="{{height}}"
+             data-gs-no-resize="{{isNotMovable}}" data-gs-no-move="{{isNotResizable}}">
+
+            {{> Template.dynamic template=getBlockLayoutTemplate data=this}}
+        </div>
+    {{/with}}
+</template>
+
+<template name="gridstack_default_widgetLayout">
+    <div class="grid-stack-item-content">
+        <div class="panel panel-default">
+            <div class="panel-heading clearfix">
+                <span class="panel-title pull-left"><span class="glyphicon glyphicon-asterisk"></span>
+                    <span class="panel-title-text">
+                        {{widgetHeader}}
+                    </span>
+                </span>
+                <div class="widget-controls pull-right">
+                </div>
+            </div>
+
+            <div class="panel-body">
+                {{> UI.dynamic template=contentTemplateName data=this}}
+            </div>
+        </div>
+    </div>
+    <div></div>
+</template>
+
+<template name="example_widget_content">
+    Stuff you want inside your widget
+</template>

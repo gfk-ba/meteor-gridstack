@@ -45,7 +45,7 @@ Template.gridstack_widget.helpers({
       parentData.gridstack.locked(node, this.locked);
     }
 
-    return this.locked;
+    return !!this.locked;
   },
   isNotMovable: function() {
     let parentData = Template.parentData();
